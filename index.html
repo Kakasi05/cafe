@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кофейня</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <header>
+    <header id="head">
         <h1>Добро пожаловать в нашу кофейню!</h1>
         <li></li>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="catalog.html">Каталог</a></li>
-                <li><a href="about.html">О нас</a></li>
-            </ul>
-        </nav>
+<nav>
+    <ul class="menu">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="catalog.html">Каталог</a></li>
+      <li class="dropdown">
+        <a href="#about.html">О нас</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">О компании</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Политика конфиденциальности</a></li>
+        </ul>
+      </li>
+    </ul>
+</nav>
+      <button id="theme-toggle" style="color: rgba(255, 255, 255, 0.445);">Swith theme</button> 
     </header>
 
     <main>
@@ -35,7 +43,7 @@
                 <h3>Уютная атмосфера</h3>
                 <p>Приходите к нам, чтобы расслабиться и насладиться атмосферой.</p>
             </div>
-            <div class="feature-item">
+             <div class="feature-item">
                 <h3>Дружелюбный персонал</h3>
                 <p>Наши бариста всегда готовы помочь вам выбрать идеальный напиток.</p>
             </div>
@@ -45,5 +53,6 @@
     <footer>
         <p>&copy; 2025 Кофейня. Все права защищены.</p>
     </footer>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
