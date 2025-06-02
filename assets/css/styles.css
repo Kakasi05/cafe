@@ -103,7 +103,7 @@ button {
   border: 0.5px solid black;
 }
 
-
 .dropdown:hover .dropdown-menu {
   display: block;
+  background-color: rgb(48, 40, 40);
 }
