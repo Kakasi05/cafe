@@ -1,67 +1,89 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Каталог Кофе</title>
-    <link rel="stylesheet" href="./assets/css/catalog.css">
+    <link rel="stylesheet" href="./assets/css/catalog.css" />
+    <!-- Подключаем стили для кнопок -->
+    <link rel="stylesheet" href="./assets/css/buttons.css" />
 </head>
 <body>
-    <header id="head">
-        <h1>Каталог Кофе</h1>
-  <li></li>
-        <nav>
-    <ul class="menu">
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="catalog.html">Каталог</a></li>
-      <li class="dropdown">
-        <a href="#about.html">О нас</a>
-        <ul class="dropdown-menu">
-          <li><a href="about.html">О компании</a></li>
-          <li><a href="#">Контакты</a></li>
-          <li><a href="#">Политика конфиденциальности</a></li>
+<header id="head">
+    <h1>Каталог Кофе</h1>
+    <a href="favorites.html">Посмотреть избранное</a>
+    <li></li>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li class="dropdown">
+                <a href="#about.html">О нас</a>
+                <ul class="dropdown-menu">
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-</nav>
-    </header>
-    <main>
-        <div class="coffee-catalog">
-            <div class="coffee-item">
-            <div class="img"> <img src="./assets/images/espresso.jpg" alt="Эспрессо"> </div>
-                <h2>Эспрессо</h2>
-                <p>Крепкий и насыщенный кофе, приготовленный путем пропускания горячей воды через мелко молотый кофе. </p>
-            </div>
+    </nav>
+</header>
 
-            <div class="coffee-item">
-                <div class="img"> <img src="./assets/images/cappuccino.jpg" alt="Капучино"></div>
-                <h2>Капучино</h2>
-                <p>Кофе с равными частями эспрессо, горячего молока и молочной пены.</p>
-            </div>
-
-            <div class="coffee-item">
-                <div class="img"> <img src="./assets/images/latte.jpg" alt="Латте"></div>
-                <h2>Латте</h2>
-                <p>Мягкий кофе с большим количеством горячего молока и небольшой порцией молочной пены.</p>
-            </div>
-
-            <div class="coffee-item">
-                <div class="img"><img src="./assets/images/americano.jpg" alt="Американо"></div>
-                <h2>Американо</h2>
-                <p>Эспрессо, разбавленный горячей водой, что делает его менее крепким.</p>
-            </div>
-
-            <div class="coffee-item">
-                <div class="img"><img src="./assets/images/raf.jpg" alt="Раф"></div>
-                <h2>Раф</h2>
-                <p>Кофе с добавлением сливок и ванили, часто подается с взбитыми сливками.</p>
-            </div>
-            
+<main>
+    <div class="coffee-catalog">
+        <!-- Каждый товар с кнопкой "В избранное" -->
+        <div class="coffee-item" data-id="espresso">
+            <div class="img"><img src="./assets/images/espresso.jpg" alt="Эспрессо"></div>
+            <h2>Эспрессо</h2>
+            <p>Крепкий и насыщенный кофе, приготовленный путем пропускания горячей воды через мелко молотый кофе.</p>
+            <!-- Кнопка -->
+            <button class="favorite-btn" data-id="espresso">В избранное</button>
         </div>
-    </main>
-    <footer>
-        <p> © 2025 Кофейня. Все права защищены.</p>
-    </footer>
-    <script src="./assets/js/list.js"></script>
+
+        <div class="coffee-item" data-id="cappuccino">
+            <div class="img"><img src="./assets/images/cappuccino.jpg" alt="Капучино"></div>
+            <h2>Капучино</h2>
+            <p>Кофе с равными частями эспрессо, горячего молока и молочной пены.</p>
+            <!-- Кнопка -->
+            <button class="favorite-btn" data-id="cappuccino">В избранное</button>
+        </div>
+
+        <div class="coffee-item" data-id="latte">
+            <div class="img"><img src="./assets/images/latte.jpg" alt="Латте"></div>
+            <h2>Латте</h2>
+            <p>Мягкий кофе с большим количеством горячего молока и небольшой порцией молочной пены.</p>
+            <!-- Кнопка -->
+            <button class="favorite-btn" data-id="latte">В избранное</button>
+        </div>
+
+        <div class="coffee-item" data-id="americano">
+            <div class="img"><img src="./assets/images/americano.jpg" alt="Американо"></div>
+            <h2>Американо</h2>
+            <p>Эспрессо, разбавленный горячей водой, что делает его менее крепким.</p>
+            <!-- Кнопка -->
+            <button class="favorite-btn" data-id="americano">В избранное</button>
+        </div>
+
+        <div class="coffee-item" data-id="raf">
+            <div class="img"><img src="./assets/images/raf.jpg" alt="Раф"></div>
+            <h2>Раф</h2>
+            <p>Кофе с добавлением сливок и ванили, часто подается с взбитыми сливками.</p>
+            <!-- Кнопка -->
+            <button class="favorite-btn" data-id="raf">В избранное</button>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 Кофейня. Все права защищены.</p>
+</footer>
+
+<!-- Подключение JS файла -->
+<script src="./assets/js/list.js"></script>
+
+<!-- Подключение файла со скриптом для кнопок -->
+<script src="./assets/js/buttons.js"></script>
+
 </body>
 </html>
