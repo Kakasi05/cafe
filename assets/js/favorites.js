@@ -55,7 +55,7 @@ favs.forEach(id => {
         div.className = 'favorite-item';
 
         div.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" width="100"/>
+            <img src="${product.image}" alt="${product.name}"/>
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <button class="remove-btn" data-id="${id}">Удалить</button>

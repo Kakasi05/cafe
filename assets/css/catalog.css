@@ -88,3 +88,84 @@ footer {
   display: block;
     background-color: rgb(48, 40, 40);
 }
+
+
+/* S */
+
+@media(max-width: 320px){
+
+body {
+    background-image: url(../images/background.jpg);
+    height: 400px;
+    width: 320px;
+  }
+
+.coffee-item p {
+  display: none;
+}
+
+.coffee-item {
+  width: 150px;
+}
+footer {
+   width: 320px;
+}
+header {
+    width: 320px;
+ }
+  }
+
+
+  /* M */
+
+@media(max-width: 375px) {
+
+body {
+    background-image: url(../images/background.jpg);
+    height: 400px;
+    width: 320px;
+  }
+
+.coffee-item p {
+  display: none;
+}
+
+.coffee-item {
+  width: 150px;
+}
+footer {
+   width: 400px;
+}
+
+header {
+    width: 400px;
+ }
+}
+
+
+/* L */
+
+@media(max-width: 425px) {
+  body{
+    background-image: url(../images/background.jpg);
+    height: 400px;
+    width: 320px;
+  }
+
+.coffee-item p {
+  display: none;
+}
+
+.coffee-item {
+  width: 150px;
+}
+
+footer {
+   width: 425px;
+}
+
+header {
+    width: 425px;
+ }
+
+}

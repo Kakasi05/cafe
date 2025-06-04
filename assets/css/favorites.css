@@ -30,7 +30,7 @@ header a:hover {
 
 #favorites-list {
     display: grid;
-grid-auto-flow: column;
+grid-auto-flow: row;
 }
 
 .favorite-item {
