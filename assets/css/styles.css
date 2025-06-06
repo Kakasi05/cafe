@@ -112,6 +112,19 @@ button {
   background-color: rgb(48, 40, 40);
 }
 
+.popular-image{
+   width: 150px;
+   height: auto;
+}
+
+#popular-section {
+   color: #6f4c3eaf;
+}
+
+.p-image {
+  opacity: 0;
+}
+
 
 /* S */
 

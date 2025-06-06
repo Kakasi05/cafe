@@ -66,3 +66,22 @@ document.addEventListener('DOMContentLoaded', () => {
      });
    });
  });
+
+ document.addEventListener('DOMContentLoaded', () => {
+  fetch('https://my-json-server.typicode.com/melonsound/json_placeholder/coffee')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('catalog-coffee');
+      data.forEach(coffee => {
+        const item = document.createElement('div');
+        item.className = 'coffee-item';
+        item.innerHTML = `
+          <h3>${coffee.name}</h3>
+          <p>Описание: ${coffee.description}</p>
+          <p>Цена: ${coffee.price} руб.</p>
+        `;
+        container.appendChild(item);
+      });
+    })
+    .catch(error => console.error('Ошибка загрузки кофе:', error));
+});

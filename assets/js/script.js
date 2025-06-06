@@ -42,3 +42,21 @@ if (dropdown && menu) {
     startHideTimer();
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('https://my-json-server.typicode.com/melonsound/json_placeholder/popular')
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById('popular');
+      data.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'popular-item';
+        div.innerHTML = `
+        <img src="${item.image}" alt="${item.title}" class="popular-image"/>
+          <h3>${item.title}</h3>
+        `;
+        container.appendChild(div);
+      });
+    })
+    .catch(console.error);
+});

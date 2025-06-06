@@ -9,6 +9,7 @@ body {
     height: 100vh;
     grid-template-rows: auto 1fr auto;
     background-image: url(../images/background.jpg);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
 header {
@@ -88,7 +89,6 @@ footer {
   display: block;
     background-color: rgb(48, 40, 40);
 }
-
 
 /* S */
 
