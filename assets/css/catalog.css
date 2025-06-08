@@ -36,7 +36,7 @@ main {
     padding: 20px;
 }
 
-.coffee-catalog {
+#coffee-catalog {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

@@ -95,6 +95,7 @@ footer {
 }
 
 .dropdown-menu {
+  padding: 1px;
   display: none;
   position: absolute;
   left: 0;

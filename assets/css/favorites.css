@@ -78,6 +78,10 @@ grid-auto-flow: column;
    margin-top :50px; 
 }
 
+#favorites-list {
+  display: flex;
+  flex-direction: column;
+}
 
 header {
     color: white;
@@ -107,6 +111,7 @@ header {
   position: absolute;
   left: 0;
   background-color: #00000060;
+  padding: 1px;
 }
 
 .dropdown-menu li {

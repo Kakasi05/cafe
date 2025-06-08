@@ -1,4 +1,3 @@
-
 function getFavorites() {
     const favs = localStorage.getItem('favorites');
     return favs ? JSON.parse(favs) : [];
@@ -11,33 +10,42 @@ function saveFavorites(favs) {
 //сохраняю в лклстр
 
 const productsData = {
-    "espresso": {
+    "2": {
         name: "Эспрессо",
         description: "Крепкий и насыщенный кофе.",
         image: "./assets/images/espresso.jpg"
     },
-    "cappuccino": {
+    "1": {
         name: "Капучино",
         description: "Кофе с молочной пеной.",
         image: "./assets/images/cappuccino.jpg"
     },
-    "latte": {
+    "5": {
         name: "Латте",
         description: "Мягкий кофе с молоком.",
         image: "./assets/images/latte.jpg"
     },
-    "americano": {
+    "3": {
         name: "Американо",
         description: "Эспрессо с водой.",
         image: "./assets/images/americano.jpg"
     },
-    "raf": {
+    "4": {
         name: "Раф",
         description: "Кофе со сливками и ванилью.",
         image: "./assets/images/raf.jpg"
     }
 };
 
+
+document.getElementById('favorites-list').addEventListener('click', (event) => {
+  if (event.target.classList.contains('remove-btn')) {
+    const idToRemove = event.target.getAttribute('id');
+    const favsUpdated = getFavorites().filter(id => id !== idToRemove);
+    saveFavorites(favsUpdated);
+    renderFavorites();
+  }
+});
 
 function renderFavorites() {
   const favs = getFavorites();
@@ -49,7 +57,7 @@ function renderFavorites() {
       return;
  }
 
-favs.forEach(id => {
+ favs.forEach(id => {
     const product = productsData[id];
     if (product) {
         const div = document.createElement('div');
@@ -59,22 +67,27 @@ favs.forEach(id => {
             <img src="${product.image}" alt="${product.name}"/>
             <h3>${product.name}</h3>
             <p>${product.description}</p>
-            <button class="remove-btn" data-id="${id}">Удалить</button>
+            <button class="remove-btn" id="${id}">Удалить</button>
         `;
         container.appendChild(div);
     }
+ });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderFavorites();
 });
 
 
     document.querySelectorAll('.remove-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            const idToRemove = btn.getAttribute('data-id');
+            const idToRemove = btn.getAttribute('id');
             let favsUpdated = getFavorites().filter(id => id !== idToRemove);
             saveFavorites(favsUpdated);
             renderFavorites(); 
         });
     });
-}
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
