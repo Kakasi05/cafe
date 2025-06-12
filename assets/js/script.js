@@ -247,7 +247,6 @@ function renderFavorites() {
     favDiv.appendChild(h3);
     favDiv.appendChild(p);
     favDiv.appendChild(btn);
-
     favContainer.appendChild(favDiv);
   }
 }
@@ -258,9 +257,9 @@ function updateCatalogButtons() {
   buttons.forEach(function(btn) {
     let id = btn.getAttribute('data-id');
     if (favorites.includes(id)) {
-      btn.textContent = 'Добавить в избранное';
+      btn.textContent = 'Уже в избранном!';
     } else {
-      btn.textContent= 'Уже в избранном!'
+      btn.textContent= 'Добавить в избранное'
     }
   });
 }
@@ -300,6 +299,7 @@ document.addEventListener('click', function(event) {
     }
   }
 });
+
 document.addEventListener('DOMContentLoaded', function() {
   loadCompany();
   if (document.getElementById('coffee-catalog')) {
