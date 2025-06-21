@@ -310,3 +310,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
   loadPopular();
 });
+
+
+class Product {
+  constructor(id, title, price, quantity = 1) {
+    this.id = id;
+    this.title = title;
+    this.price = price;
+    this.quantity = quantity; 
+  }
+
+  sell(amount = 1) {
+    if (amount <= 0) {
+      console.log('Неверное количество для продажи');
+      return false;
+    }
+
+    if (this.quantity >= amount) {
+      this.quantity -= amount;
+      console.log(`Продано ${amount} шт. товара "${this.title}". Остаток: ${this.quantity}`);
+      return true;
+    } else {
+      console.log(`Недостаточно товара "${this.title}" для продажи. Доступно: ${this.quantity}`);
+      return false;
+    }
+  }
+
+  calculateSalePrice(amount = this.quantity) {
+    if (amount <= 0) {
+      console.log('Неверное количество для расчёта цены');
+      return 0;
+    }
+    if (amount > this.quantity) {
+      console.log(`Запрошено больше товара, чем есть в наличии. Используется максимум: ${this.quantity}`);
+      amount = this.quantity;
+    }
+    let totalPrice = this.price * amount;
+    console.log(`Общая цена за ${amount} шт. товара "${this.title}": ${totalPrice.toFixed(2)} руб.`);
+    return totalPrice;
+  }
+}
+
+// Пример использования
+// const coffee = new Product(1, 'мокаччино', 350, 10);
+
+// coffee.calculateSalePrice(3); - Общая цена
+// coffee.sell(3);                - 3 шт продаем
+// coffee.sell(8);                - если продаем больше чем есть
+// coffee.calculateSalePrice();   - оставшаяся цена
