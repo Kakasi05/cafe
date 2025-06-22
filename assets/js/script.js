@@ -312,63 +312,64 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-function Product(id, title, price, quantity) {
-  this.id = id;
-  this.title = title;
-  this.price = price;
-  this.quantity = quantity || 0;
+class Product {
+  constructor(id, title, price, quantity = 0) {
+    this.id = id;
+    this.title = title;
+    this.price = price;
+    this.quantity = quantity;
+  }
+
+  sell(amount = 0) {
+    if (amount <= 0) {
+      console.log('Неверное количество для продажи');
+      return false;
+    }
+
+    if (this.quantity >= amount) {
+      this.quantity -= amount;
+      console.log(`Продано ${amount} шт. товара "${this.title}". Остаток: ${this.quantity}`);
+      return true;
+    } else {
+      console.log(`Недостаточно товара "${this.title}" для продажи. Доступно: ${this.quantity}`);
+      return false;
+    }
+  }
+
+  calculateSalePrice(amount) {
+    if (!amount) {
+      amount = this.quantity;
+    }
+
+    if (amount <= 0) {
+      console.log('Неверное количество для расчёта цены');
+      return 0;
+    }
+
+    if (amount > this.quantity) {
+      console.log(`Запрошено больше товара, чем есть в наличии. Можем предложить максимум: ${this.quantity}`);
+      amount = this.quantity;
+    }
+
+    const totalPrice = this.price * amount;
+    console.log(`Общая цена за ${amount} шт. товара "${this.title}": ${totalPrice.toFixed(2)} руб.`);
+    return totalPrice;
+  }
 }
 
-Product.prototype.sell = function(amount) {
-  amount = amount || 0;
-
-  if (amount <= 0) {
-    console.log('Неверное количество для продажи');
-    return false;
+class Coffee extends Product {
+  constructor(id, title, price, quantity, roast, origin) {
+    super(id, title, price, quantity);
+    this.roast = roast;
+    this.origin = origin;
   }
 
-  if (this.quantity >= amount) {
-    this.quantity = this.quantity - amount;
-    console.log('Продано ' + amount + ' шт. товара "' + this.title + '". Остаток: ' + this.quantity);
-    return true;
-  } else {
-    console.log('Недостаточно товара "' + this.title + '" для продажи. Доступно: ' + this.quantity);
-    return false;
+  describe() {
+    console.log(`Кофе "${this.title}" из ${this.origin}, обжарка: ${this.roast}. Цена: ${this.price} руб.`);
   }
-};
-Product.prototype.calculateSalePrice = function(amount) {
-  if (!amount) {
-    amount = this.quantity;
-  }
-
-  if (amount <= 0) {
-    console.log('Неверное количество для расчёта цены');
-    return 0;
-  }
-
-  if (amount > this.quantity) {
-    console.log('Запрошено больше товара, чем есть в наличии. Можем предложить максимум: ' + this.quantity);
-    amount = this.quantity;
-  }
-
-  const totalPrice = this.price * amount;
-  console.log('Общая цена за ' + amount + ' шт. товара "' + this.title + '": ' + totalPrice.toFixed(2) + ' руб.');
-  return totalPrice;
-};
-
-function Coffee(id, title, price, quantity, roast, origin) {
-  Product.call(this, id, title, price, quantity);
-  this.roast = roast;
-  this.origin = origin;
 }
 
-Coffee.prototype = Object.create(Product.prototype);
-Coffee.prototype.constructor = Coffee;
-Coffee.prototype.describe = function() {
-  console.log('Кофе "' + this.title + '" из ' + this.origin + ', обжарка: ' + this.roast + '. Цена: ' + this.price + ' руб.');
-};
-
-//Пример использования
+// Пример использования
 const myCoffee = new Coffee(1, 'Моккачино', 350, 10, 'Средняя', 'Бразилия');
 
 myCoffee.describe();
@@ -376,4 +377,4 @@ myCoffee.calculateSalePrice(3);
 myCoffee.calculateSalePrice(100);
 myCoffee.sell(0);
 myCoffee.sell(10000);
-myCoffee.sell(5)
+myCoffee.sell(5);
