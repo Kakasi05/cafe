@@ -311,6 +311,48 @@ document.addEventListener('DOMContentLoaded', function() {
   loadPopular();
 });
 
+const product = {
+  id: null,
+  title: '',
+  price: 0,
+  quantity: 0,
+
+  sell(amount = 0) {
+    if (amount <= 0) {
+      console.log('Неверное количество для продажи');
+      return false;
+    }
+
+    if (this.quantity >= amount) {
+      this.quantity -= amount;
+      console.log(`Продано ${amount} шт. товара "${this.title}". Остаток: ${this.quantity}`);
+      return true;
+    } else {
+      console.log(`Недостаточно товара "${this.title}" для продажи. Доступно: ${this.quantity}`);
+      return false;
+    }
+  },
+
+  calculateSalePrice(amount) {
+    if (!amount) {
+      amount = this.quantity;
+    }
+
+    if (amount <= 0) {
+      console.log('Неверное количество для расчёта цены');
+      return 0;
+    }
+
+    if (amount > this.quantity) {
+      console.log(`Запрошено больше товара, чем есть в наличии. Можем предложить максимум: ${this.quantity}`);
+      amount = this.quantity;
+    }
+
+    const totalPrice = this.price * amount;
+    console.log(`Общая цена за ${amount} шт. товара "${this.title}": ${totalPrice.toFixed(2)} руб.`);
+    return totalPrice;
+  }
+};
 
 class Product {
   constructor(id, title, price, quantity = 0) {
